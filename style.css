@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    min-height: 100vh;
+    position: relative;
+    /* Fondo inicial antes de carguen las constelaciones */
+    background: linear-gradient(135deg, #0a0a2a, #1a1a3a);
+}
+
+/* Animación de fondo */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 1s ease-in-out;
+    animation: rotateBackground 20s linear infinite;
+}
+
+@keyframes rotateBackground {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estilos del header y navegación */
+header {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #c8a0ffb6, #4ecdc4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #4ecdc4;
+}
+
+/* Estilos principales */
+main {
+    margin-top: 80px;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    backdrop-filter: blur(5px);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #573ebed0, #9a5bff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+.intro {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    backdrop-filter: blur(5px);
+}
+
+.intro h2, .intro h3 {
+    color: #4ecdc4;
+    margin-bottom: 1rem;
+}
+
+.intro p {
+    margin-bottom: 1.5rem;
+}
+
+/* Contenedor de planetas */
+#datos-curiosos {
+    margin-top: 3rem;
+}
+
+#datos-curiosos h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ff6b6b;
+    font-size: 2rem;
+}
+
+.planets-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.planet-card {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.planet-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: rgba(78, 205, 196, 0.5);
+}
+
+.planet-img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+}
+
+.planet-card h3 {
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.planet-card p {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .planets-container {
+        flex-direction: column;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+}
